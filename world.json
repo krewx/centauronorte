@@ -1,0 +1,31 @@
+elements: {
+nodes: [
+  { data: { id: 'macuspana', name: 'Macuspana' } },
+  { data: { id: 'nacajuca', name: 'Nacajuca' } },
+  { data: { id: 'balancan', name: 'Balancán' } },
+  { data: { id: 'jonuta', name: 'Jonuta' } },
+  { data: { id: 'huimanguillo', name: 'Huimanguillo' } },
+  { data: { id: 'jalpa', name: 'Jalpa' } },
+  { data: { id: 'villahermosa', name: 'Villahermosa' } },
+  { data: { id: 'unam', name: 'UNAM' } },
+  { data: { id: 'xochimilco', name: 'Xochimilco' } },
+  { data: { id: 'santa-fe', name: 'Santa Fe' } },
+  { data: { id: 'los-pinos', name: 'Los Pinos' } }
+],
+edges: [
+  { data: { source: 'macuspana', target: 'nacajuca', weight: 15 } },
+  { data: { source: 'macuspana', target: 'huimanguillo', weight: 11 } },
+  { data: { source: 'macuspana', target: 'balancan', weight: 18 } },
+  { data: { source: 'macuspana', target: 'jonuta', weight: 21 } },
+  { data: { source: 'macuspana', target: 'jalpa', weight: 20 } },
+  { data: { source: 'jalpa', target: 'nacajuca', weight: 21 } },
+  { data: { source: 'macuspana', target: 'villahermosa', weight: 17 } },
+  { data: { source: 'balancan', target: 'nacajuca', weight: 16 } },
+  { data: { source: 'villahermosa', target: 'unam', weight: 34 } },
+  { data: { source: 'unam', target: 'xochimilco', weight: 11 } },
+  { data: { source: 'unam', target: 'santa-fe', weight: 16 } },
+  { data: { source: 'unam', target: 'los-pinos', weight: 23 } },
+  { data: { source: 'xochimilco', target: 'santa-fe', weight: 15 } },
+  { data: { source: 'xochimilco', target: 'los-pinos', weight: 20 } },
+]
+}
