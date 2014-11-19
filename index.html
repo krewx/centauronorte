@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app='centauroApp'>
+	<head>
+	   	<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>    
+	    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular-route.js"></script>
+	    <script type="text/javascript" src="centauroApp.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Búsqueda</title>
+	</head>
+	<body><div class="container">
+
+		<h1>Algoritmos de búsqueda</h1>
+
+		<section id="astar" ng-controller="astarController">
+			<div id="cy"></div>
+		</section>
+
+		<section id="trees" ng-controller="treesController">
+			
+		</section>		
+
+
+	</div></body>
+</html>
