@@ -7,6 +7,11 @@ var centauro = angular.module('centauroApp', ['ngRoute'])
 		  style: cytoscape.stylesheet()
 		    .selector('node')
 		      .css({
+		        'content': 'data(name)',
+		        'text-valign': 'top',
+		        'color': 'white',
+		        'text-outline-width': 2,
+		        'text-outline-color': '#888',
 		        'height': 80,
 		        'width': 80,
 		        'background-fit': 'cover',
@@ -14,73 +19,100 @@ var centauro = angular.module('centauroApp', ['ngRoute'])
 		        'border-width': 3,
 		        'border-opacity': 0.5
 		      })
-		    .selector('.eating')
-		      .css({
-		        'border-color': 'red'
-		      })
-		    .selector('.eater')
-		      .css({
-		        'border-width': 9
-		      })
 		    .selector('edge')
 		      .css({
+		        'content': 'data(weight)',
+		        'text-valign': 'top',
+		        'color': 'white',
+		        'text-outline-width': 2,
+		        'text-outline-color': '#888',		      	
 		        'width': 6,
 		        'target-arrow-shape': 'triangle',
 		        'line-color': '#ffaaaa',
 		        'target-arrow-color': '#ffaaaa'
 		      })
-		    .selector('#bird')
+		    .selector('.highlighted')
 		      .css({
-		        'background-image': 'https://farm8.staticflickr.com/7272/7633179468_3e19e45a0c_b.jpg'
+		        'background-color': '#61bffc',
+		        'line-color': '#61bffc',
+		        'target-arrow-color': '#61bffc',
+		        'transition-property': 'background-color, line-color, target-arrow-color',
+		        'transition-duration': '0.5s'
+		      })		      
+		    .selector('#macuspana')
+		      .css({
+		        'background-image': 'http://mexico.cnn.com/media/2012/03/28/lopez-obrador-perfil.jpg'
 		      })
-		    .selector('#cat')
+		    .selector('#nacajuca')
 		      .css({
-		        'background-image': 'https://farm2.staticflickr.com/1261/1413379559_412a540d29_b.jpg'
+		        'background-image': 'http://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Nacajuca_Artesan%C3%ADa_3.jpg/250px-Nacajuca_Artesan%C3%ADa_3.jpg'
 		      })
-		    .selector('#ladybug')
+		    .selector('#balancan')
 		      .css({
-		        'background-image': 'https://farm4.staticflickr.com/3063/2751740612_af11fb090b_b.jpg'
+		        'background-image': 'http://www.conaculta.gob.mx/turismocultural/guias/images_guia8/balancan.jpg'
 		      })
-		  .selector('#aphid')
+		  .selector('#jonuta')
 		      .css({
-		        'background-image': 'https://farm9.staticflickr.com/8316/8003798443_32d01257c8_b.jpg'
+		        'background-image': 'http://diarioavancetabasco.com/wp-content/uploads/2013/04/MUNICIPIO-31-650x489.jpg'
 		      })
-		  .selector('#rose')
+		  .selector('#huimanguillo')
 		      .css({
-		        'background-image': 'https://farm6.staticflickr.com/5109/5817854163_eaccd688f5_b.jpg'
+		        'background-image': 'http://media-cdn.tripadvisor.com/media/photo-s/01/58/46/0c/huimanguillo.jpg'
 		      })
-		  .selector('#grasshopper')
+		  .selector('#jalpa')
 		      .css({
-		        'background-image': 'https://farm7.staticflickr.com/6098/6224655456_f4c3c98589_b.jpg'
+		        'background-image': 'http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Jalpa_de_M%C3%A9ndez_Artesan%C3%ADas.jpg/275px-Jalpa_de_M%C3%A9ndez_Artesan%C3%ADas.jpg'
 		      })
-		  .selector('#plant')
+		  .selector('#villahermosa')
 		      .css({
-		        'background-image': 'https://farm1.staticflickr.com/231/524893064_f49a4d1d10_z.jpg'
+		        'background-image': 'http://lagunapark.mx/wp-content/uploads/2014/08/LagunaIlusiones.jpg'
 		      })
-		  .selector('#wheat')
+		  .selector('#unam')
 		      .css({
-		        'background-image': 'https://farm3.staticflickr.com/2660/3715569167_7e978e8319_b.jpg'
-		      }),
+		        'background-image': 'http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-UNAM-escalable.svg/200px-Escudo-UNAM-escalable.svg.png'
+		      })
+  		  .selector('#xochimilco')
+		      .css({
+		        'background-image': 'http://www.arqueomex.com/images/ESPECIAL43/g.viajeros_xochimilco.jpg'
+		      })		      
+  		  .selector('#santa-fe')
+		      .css({
+		        'background-image': 'http://ww1.prweb.com/prfiles/2013/02/20/10451363/Santa-Fe-DF.jpg'
+		      })
+  		  .selector('#los-pinos')
+		      .css({
+		        'background-image': 'http://static.squarespace.com/static/531e7341e4b00453258c181e/t/5418fda3e4b0fa4ecac21f6b/1410923940190/bandera+de+Mexico'
+		      }),		      
 		  
 		  elements: {
 		    nodes: [
-		      { data: { id: 'cat' } },
-		      { data: { id: 'bird' } },
-		      { data: { id: 'ladybug' } },
-		      { data: { id: 'aphid' } },
-		      { data: { id: 'rose' } },
-		      { data: { id: 'grasshopper' } },
-		      { data: { id: 'plant' } },
-		      { data: { id: 'wheat' } }
+		      { data: { id: 'macuspana', name: 'Macuspana' } },
+		      { data: { id: 'nacajuca', name: 'Nacajuca' } },
+		      { data: { id: 'balancan', name: 'Balancán' } },
+		      { data: { id: 'jonuta', name: 'Jonuta' } },
+		      { data: { id: 'huimanguillo', name: 'Huimanguillo' } },
+		      { data: { id: 'jalpa', name: 'Jalpa' } },
+		      { data: { id: 'villahermosa', name: 'Villahermosa' } },
+		      { data: { id: 'unam', name: 'UNAM' } },
+		      { data: { id: 'xochimilco', name: 'Xochimilco' } },
+		      { data: { id: 'santa-fe', name: 'Santa Fe' } },
+		      { data: { id: 'los-pinos', name: 'Los Pinos' } }
 		    ],
 		    edges: [
-		      { data: { source: 'cat', target: 'bird' } },
-		      { data: { source: 'bird', target: 'ladybug' } },
-		      { data: { source: 'bird', target: 'grasshopper' } },
-		      { data: { source: 'grasshopper', target: 'plant' } },
-		      { data: { source: 'grasshopper', target: 'wheat' } },
-		      { data: { source: 'ladybug', target: 'aphid' } },
-		      { data: { source: 'aphid', target: 'rose' } }
+		      { data: { source: 'macuspana', target: 'nacajuca', weight: 15 } },
+		      { data: { source: 'macuspana', target: 'huimanguillo', weight: 11 } },
+		      { data: { source: 'macuspana', target: 'balancan', weight: 18 } },
+		      { data: { source: 'macuspana', target: 'jonuta', weight: 21 } },
+		      { data: { source: 'macuspana', target: 'jalpa', weight: 20 } },
+		      { data: { source: 'jalpa', target: 'nacajuca', weight: 21 } },
+		      { data: { source: 'macuspana', target: 'villahermosa', weight: 17 } },
+		      { data: { source: 'balancan', target: 'nacajuca', weight: 16 } },
+		      { data: { source: 'villahermosa', target: 'unam', weight: 34 } },
+		      { data: { source: 'unam', target: 'xochimilco', weight: 11 } },
+		      { data: { source: 'unam', target: 'santa-fe', weight: 16 } },
+		      { data: { source: 'unam', target: 'los-pinos', weight: 23 } },
+		      { data: { source: 'xochimilco', target: 'santa-fe', weight: 15 } },
+		      { data: { source: 'xochimilco', target: 'los-pinos', weight: 20 } },
 		    ]
 		  },
 		  
@@ -90,57 +122,10 @@ var centauro = angular.module('centauroApp', ['ngRoute'])
 		    padding: 10
 		  }
 		}); // cy init
-		  
-		cy.on('tap', 'node', function(){
-		  var nodes = this;
-		  var tapped = nodes;
-		  var food = [];
-		  
-		  nodes.addClass('eater');
-		  
-		  for(;;){
-		    var connectedEdges = nodes.connectedEdges(function(){
-		      return !this.target().anySame( nodes );
-		    });
-		    
-		    var connectedNodes = connectedEdges.targets();
-		    
-		    Array.prototype.push.apply( food, connectedNodes );
-		    
-		    nodes = connectedNodes;
-		    
-		    if( nodes.empty() ){ break; }
-		  }
-		        
-		  var delay = 0;
-		  var duration = 500;
-		  for( var i = food.length - 1; i >= 0; i-- ){ (function(){
-		    var thisFood = food[i];
-		    var eater = thisFood.connectedEdges(function(){
-		      return this.target().same(thisFood);
-		    }).source();
-		            
-		    thisFood.delay( delay, function(){
-		      eater.addClass('eating');
-		    } ).animate({
-		      position: eater.position(),
-		      css: {
-		        'width': 10,
-		        'height': 10,
-		        'border-width': 0,
-		        'opacity': 0
-		      }
-		    }, {
-		      duration: duration,
-		      complete: function(){
-		        thisFood.remove();
-		      }
-		    });
-		    
-		    delay += duration;
-		  })(); } // for
-		  
-		}); // on tap		
+		
+		var aStar = cy.elements().aStar({ root: "#macuspana", goal: "#los-pinos" });
+
+		aStar.path.edges().addClass('highlighted');
 	});
 
 	centauro.controller('treesController', function ($scope, $http) {
