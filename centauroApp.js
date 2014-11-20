@@ -10,10 +10,10 @@ var centauro = angular.module('centauroApp', ['ngRoute'])
 		        'content': 'data(name)',
 		        'text-valign': 'top',
 		        'color': 'white',
-		        'text-outline-width': 2,
+		        'text-outline-width': 1,
 		        'text-outline-color': '#888',
-		        'height': 80,
-		        'width': 80,
+		        'height': 30,
+		        'width': 30,
 		        'background-fit': 'cover',
 		        'border-color': '#000',
 		        'border-width': 3,
@@ -117,15 +117,25 @@ var centauro = angular.module('centauroApp', ['ngRoute'])
 		  },
 		  
 		  layout: {
-		    name: 'breadthfirst',
+		    name: 'cose',
 		    directed: true,
-		    padding: 10
+		    padding: 5,
+		    animate: false,
+		    animationDuration: 3500
 		  }
 		}); // cy init
 		
 		var aStar = cy.elements().aStar({ root: "#macuspana", goal: "#los-pinos" });
 
 		aStar.path.edges().addClass('highlighted');
+
+		aStar.path.nodes().forEach(function (node) {
+			console.log(node.data());
+		});
+
+		aStar.path.edges().forEach(function (edge) {
+			console.log(edge.data());
+		});
 	});
 
 	centauro.controller('treesController', function ($scope, $http) {
